@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>OG EDIBLES1738 - Premium Cannabis, Edibles & Infused Treats</title>
+    <meta name="description" content="OG EDIBLES1738 offers premium cannabis edibles, infused gummies, chocolates, beverages, and high-quality flower. Order now for elevated experiences.">
+    <meta name="keywords" content="cannabis edibles, infused gummies, weed brownies, cannabis flower, THC drinks, marijuana South Africa, OG Edibles, buy weed online">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="OG EDIBLES1738 - Premium Cannabis & Edibles">
+    <meta property="og:description" content="Discover curated raw flower, delicious edibles, and innovative cannabis-infused beverages.">
+    <meta property="og:image" content="images/logo.jpg">
+    <meta property="og:url" content="https://www.ogedibles1738.netlify.app"> <meta property="og:type" content="website">
+
+    <meta name="google-site-verification" content="YOUR_SEARCH_CONSOLE_VERIFICATION_CODE" />
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL0XW6REQX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date());
+        gtag('config', 'G-BL0XW6REQX ');
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // --- Configuration Section (Conceptual CSS part 1) ---
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#1E4D2B',   /* Dark Forest Green */
+                        'secondary': '#E5F3E7', /* Light Mint/Cream */
+                        'accent': '#A56CFF',    /* Muted Purple */
+                        'text-dark': '#333333',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* --- Custom Styles Section (Conceptual CSS part 2) --- */
+        body {
+            background-color: #FFFFFF;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(30, 77, 43, 0.15);
+        }
+
+        /* Age Verification Modal styles */
+        #age-gate-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .hidden-gate {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100%;
+            background-color: white;
+            z-index: 50;
+            padding: 1.5rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+        #menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 45;
+            display: none;
+        }
+        #menu-backdrop.open {
+            display: block;
+        }
+
+        /* Product Tooltip Styling */
+        #product-tooltip {
+            min-width: 180px;
+            max-width: 90vw;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            opacity: 0;
+            transform: translateY(10px);
+            left: -9999px;
+            z-index: 50; 
+        }
+        #product-tooltip.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body class="font-sans text-text-dark">
+
+    <div id="age-gate-overlay">
+        <div class="bg-white p-10 md:p-16 rounded-xl shadow-2xl max-w-lg w-11/12 text-center border-t-4 border-accent">
+            <h1 class="text-3xl font-bold text-primary mb-4">Welcome to OG EDIBLES1738</h1>
+            <p class="text-lg mb-8 text-text-dark">
+                Please confirm that you are 21 years of age or older to view our products.
+            </p>
+            <button id="age-confirm-btn" class="px-8 py-3 bg-accent text-white font-semibold rounded-full shadow-lg hover:bg-primary transition duration-300">
+                I am 21+
+            </button>
+            <p class="mt-4 text-xs text-text-dark/70">
+                By clicking, you confirm you meet the legal age requirement in your jurisdiction.
+            </p>
+        </div>
+    </div>
+
+    <div id="menu-backdrop" class="hidden-gate"></div>
+    <div id="mobile-menu" class="lg:hidden">
+        <div class="flex justify-between items-center mb-6 border-b pb-3 border-primary/20">
+            <h2 class="text-xl font-bold text-primary">Menu</h2>
+            <button id="close-menu-btn" class="text-text-dark hover:text-accent focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="space-y-4">
+            <a href="#products" class="block text-lg font-medium text-text-dark hover:text-accent transition duration-150" onclick="closeMenu()">Menu</a>
+            <a href="#reviews" class="block text-lg font-medium text-text-dark hover:text-accent transition duration-150" onclick="closeMenu()">Client Reviews</a>
+            <a href="#about" class="block text-lg font-medium text-text-dark hover:text-accent transition duration-150" onclick="closeMenu()">Our Story</a>
+            <a href="#disclaimers" class="block text-lg font-medium text-text-dark hover:text-accent transition duration-150" onclick="closeMenu()">Legal</a>
+            <a href="#order" class="block text-lg font-medium px-4 py-2 border border-accent rounded-full text-accent hover:bg-accent hover:text-white transition duration-150 mt-4" onclick="closeMenu()">Order Now</a>
+        </nav>
+        <div class="mt-8 pt-4 border-t border-primary/20 space-y-3">
+             <a href="https://wa.me/0637572748" target="_blank" class="text-sm text-green-600 flex items-center hover:text-green-700">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 3.321 1.62 6.307 4.133 8.167l-.768 2.833 3.018-.841A9.965 9.965 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm3.827 13.568c-.104-.176-.395-.282-.82-.505-.426-.223-2.502-1.229-2.898-1.36-.396-.131-.685-.198-.974.198-.29.396-1.121 1.36-1.37 1.649-.248.29-.496.331-.922.11-.426-.223-1.802-.663-3.435-2.122-1.268-1.144-2.126-2.55-2.374-2.946-.248-.396-.026-.61.196-.833.193-.198.426-.505.639-.753.213-.248.283-.435.426-.725.143-.29.071-.54-.036-.753-.104-.213-.974-2.348-1.334-3.21-.358-.863-.717-.74-.974-.753-.248-.013-.538-.013-.827-.013-.29 0-.768.11-.974.396-.206.289-.78 1.139-.78 2.77 0 1.631 1.155 3.21 1.659 3.896.505.686 2.215 3.376 5.378 4.618 3.163 1.242 3.827 1.053 4.512.986.685-.067 1.155-.444 1.325-.879.17-.434.17-.806.121-.892-.049-.086-.179-.131-.371-.237z"/></svg>
+                Contact us on WhatsApp
+            </a>
+            <a href="https://www.instagram.com/og_edibles1738?igsh=YXdiZW45ODY1azc1" target="_blank" class="text-sm text-accent flex items-center hover:text-primary transition duration-150">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.014 4.851.07l.534.024 1.764.123c.895.062 1.498.188 2.059.414.561.226.974.526 1.385.937.411.411.711.824.937 1.385.226.561.352 1.164.414 2.059l.123 1.764.024.534c.056 1.267.07 1.647.07 4.851s-.014 3.584-.07 4.851l-.024.534-.123 1.764c-.062.895-.188 1.498-.414 2.059-.226.561-.526.974-.937 1.385-.411.411-.711.824-.937 1.385-.226.561-.352 1.164-.414 2.059l-.123 1.764-.024.534c-.056 1.267-.07 1.647-.07 4.851s.014 3.584.07 4.851l.024.534.123 1.764c.062.895.188 1.498.414 2.059.226.561.526.974.937 1.385.411.411.711.824.937 1.385.561.226 1.164.352 2.059.414l1.764.123.534.024c1.267.056 1.647.07 4.851.07s3.584-.014 4.851-.07l.534-.024 1.764-.123c.895-.062 1.498-.188 2.059-.414.561-.226.974-.526 1.385-.937.411-.411.711-.824.937-1.385.226-.561.352-1.164.414-2.059l.123-1.764.024-.534c.056-1.267.07-1.647.07-4.851s-.014-3.584-.07-4.851l-.024-.534-.123-1.764c-.062-.895-.188-1.498-.414-2.059-.226-.561-.526-.974-.937-1.385-.411-.411-.824-.711-1.385-.937-.561-.226-1.164-.352-2.059-.414l-1.764-.123-.534-.024c-1.267-.056-1.647-.07-4.851-.07zM12 7.55c2.457 0 4.45 1.993 4.45 4.45s-1.993 4.45-4.45 4.45-4.45-1.993-4.45-4.45 1.993-4.45 4.45-4.45zM12 9.05c-1.624 0-2.95 1.326-2.95 2.95s1.326 2.95 2.95 2.95 2.95-1.326 2.95-2.95-1.326-2.95-2.95-2.95zM17.34 5.95c-.328 0-.594.266-.594.594s.266.594.594.594.594-.266.594-.594-.266-.594-.594-.594z"/></svg>
+                Follow us on Instagram
+            </a>
+            </div>
+    </div>
+
+    <div id="main-content" class="opacity-0 transition-opacity duration-500 pointer-events-none">
+
+        <div id="product-tooltip" class="fixed z-50 p-3 bg-primary text-white rounded-xl shadow-2xl transition-all duration-200 pointer-events-none">
+            <p id="tooltip-content" class="text-sm"></p>
+            <div id="tooltip-arrow" class="absolute w-3 h-3 bg-primary transform rotate-45 -bottom-1 rounded-sm" style="left: 50%;"></div>
+        </div>
+        
+        <a id="auth-fab"
+           class="fixed bottom-36 right-6 z-50 p-4 bg-primary text-secondary rounded-full shadow-xl hover:bg-accent transition duration-300 transform hover:scale-105 cursor-pointer"
+           aria-label="Login or Signup">
+           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+           </svg>
+        </a>
+        <a href="https://www.instagram.com/og_edibles1738?igsh=YXdiZW45ODY1azc1" 
+           target="_blank" 
+           class="fixed bottom-20 right-6 z-50 p-4 bg-accent text-white rounded-full shadow-xl hover:bg-primary transition duration-300 transform hover:scale-105"
+           aria-label="Follow us on Instagram">
+           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+               <path d="M12 2.163c3.204 0 3.584.014 4.851.07l.534.024 1.764.123c.895.062 1.498.188 2.059.414.561.226.974.526 1.385.937.411.411.711.824.937 1.385.226.561.352 1.164.414 2.059l.123 1.764.024.534c.056 1.267.07 1.647.07 4.851s-.014 3.584-.07 4.851l-.024.534-.123 1.764c-.062.895-.188 1.498-.414 2.059-.226.561-.526.974-.937 1.385-.411.411-.711.824-.937 1.385-.226.561-.352 1.164-.414 2.059l-.123 1.764-.024.534c-.056 1.267-.07 1.647-.07 4.851s.014 3.584.07 4.851l.024.534.123 1.764c.062.895.188 1.498.414 2.059.226.561.526.974.937 1.385.411.411.711.824.937 1.385.561.226 1.164.352 2.059.414l1.764.123.534.024c1.267.056 1.647.07 4.851.07s3.584-.014 4.851-.07l.534-.024 1.764-.123c.895-.062 1.498-.188 2.059-.414.561-.226.974-.526 1.385-.937.411-.411.711-.824.937-1.385.226-.561.352-1.164.414-2.059l.123-1.764.024-.534c.056-1.267.07-1.647.07-4.851s-.014-3.584-.07-4.851l-.024-.534-.123-1.764c-.062-.895-.188-1.498-.414-2.059-.226-.561-.526-.974-.937-1.385-.411-.411-.824-.711-1.385-.937-.561-.226-1.164-.352-2.059-.414l-1.764-.123-.534-.024c-1.267-.056-1.647-.07-4.851-.07zM12 7.55c2.457 0 4.45 1.993 4.45 4.45s-1.993 4.45-4.45 4.45-4.45-1.993-4.45-4.45 1.993-4.45 4.45-4.45zM12 9.05c-1.624 0-2.95 1.326-2.95 2.95s1.326 2.95 2.95 2.95 2.95-1.326 2.95-2.95-1.326-2.95-2.95-2.95zM17.34 5.95c-.328 0-.594.266-.594.594s.266.594.594.594.594-.266.594-.594-.266-.594-.594-.594z"/></svg>
+        </a>
+
+        <a href="https://wa.me/0637572748?text=Hi%20OG%20EDIBLES1738%2C%20I%20have%20an%20order%20inquiry." 
+           target="_blank" 
+           class="fixed bottom-6 right-6 z-50 p-4 bg-green-500 text-white rounded-full shadow-xl hover:bg-green-600 transition duration-300 transform hover:scale-105"
+           aria-label="Chat with us on WhatsApp">
+           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+               <path d="M12 2C6.477 2 2 6.477 2 12c0 3.321 1.62 6.307 4.133 8.167l-.768 2.833 3.018-.841A9.965 9.965 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm3.827 13.568c-.104-.176-.395-.282-.82-.505-.426-.223-2.502-1.229-2.898-1.36-.396-.131-.685-.198-.974.198-.29.396-1.121 1.36-1.37 1.649-.248.29-.496.331-.922.11-.426-.223-1.802-.663-3.435-2.122-1.268-1.144-2.126-2.55-2.374-2.946-.248-.396-.026-.61.196-.833.193-.198.426-.505.639-.753.213-.248.283-.435.426-.725.143-.29.071-.54-.036-.753-.104-.213-.974-2.348-1.334-3.21-.358-.863-.717-.74-.974-.753-.248-.013-.538-.013-.827-.013-.29 0-.768.11-.974.396-.206.289-.78 1.139-.78 2.77 0 1.631 1.155 3.21 1.659 3.896.505.686 2.215 3.376 5.378 4.618 3.163 1.242 3.827 1.053 4.512.986.685-.067 1.155-.444 1.325-.879.17-.434.17-.806.121-.892-.049-.086-.179-.131-.371-.237z"/></svg>
+        </a>
+
+        <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm shadow-md">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <a href="#hero" class="flex-shrink-0">
+                        <img src="images/logo.jpg" alt="OG EDIBLES1738 Logo" class="h-8 md:h-10">
+                    </a>
+                    
+                    <nav class="hidden lg:flex lg:space-x-8">
+                        <a href="#products" class="text-text-dark hover:text-accent font-medium transition duration-150">Menu</a>
+                        <a href="#reviews" class="text-text-dark hover:text-accent font-medium transition duration-150">Client Reviews</a>
+                        <a href="#about" class="text-text-dark hover:text-accent font-medium transition duration-150">Our Story</a>
+                        <a href="#disclaimers" class="text-text-dark hover:text-accent font-medium transition duration-150">Legal</a>
+                    </nav>
+
+                    <div class="flex items-center space-x-4">
+                        <a href="#order" id="nav-order-btn" class="hidden lg:inline-block px-4 py-2 border border-accent rounded-full text-accent font-medium hover:bg-accent hover:text-white transition duration-150">
+                            Order Now
+                        </a>
+                        <div id="user-display-container" class="relative">
+                            <p id="user-id-display" class="text-sm text-primary/70 cursor-pointer hidden md:block" onclick="toggleAccountPanel()">Account</p>
+                            <div id="account-panel" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl py-2 z-50 hidden border border-primary/10">
+                                <p id="user-email-display" class="block px-4 py-2 text-sm text-text-dark truncate border-b mb-1">Guest</p>
+                                <a href="#" id="login-nav-btn" class="block px-4 py-2 text-sm text-primary hover:bg-secondary">Log In</a>
+                                <a href="#" id="signup-nav-btn" class="block px-4 py-2 text-sm text-primary hover:bg-secondary">Sign Up</a>
+                                <a href="#" id="logout-btn" class="block px-4 py-2 text-sm text-red-600 hover:bg-secondary hidden">Log Out</a>
+                            </div>
+                        </div>
+                        <button id="open-menu-btn" class="lg:hidden p-2 text-primary focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="hero" class="text-center py-16 md:py-24 bg-secondary">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-primary mb-4">
+                    Elevated Experiences. <span class="text-accent">Premium Edibles.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-text-dark/90 max-w-3xl mx-auto">
+                    Curated selection of raw flower, delicious edibles, and innovative cannabis-infused beverages. Discover your perfect dose.
+                </p>
+                <img src="images/logo.jpg" alt="High-quality cannabis products banner" class="mx-auto mt-10 rounded-xl shadow-xl w-full max-w-5xl">
+                <a href="#products" class="inline-block px-8 py-3 text-lg font-semibold bg-primary text-white rounded-full shadow-lg hover:bg-accent transition duration-300 transform hover:scale-105 mt-8">
+                    View Our Full Menu
+                </a>
+            </div>
+        </section>
+
+        <section id="products" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12 border-b-2 border-accent/30 pb-2 max-w-max mx-auto">Our Menu</h2>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 md:gap-8">
+                    
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="edible1">
+                        <img src="images/edible1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Gummies';" alt="THC Infused Gummies" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">THC Gummies (50mg)</p>
+                        <p class="text-accent text-lg font-bold mt-1">R100</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="edible2">
+                        <img src="images/edible2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Brownie';" alt="THC Infused Brownie" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">THC Brownie (100mg)</p>
+                        <p class="text-accent text-lg font-bold mt-1">R120</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="flower1">
+                        <img src="images/flower1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Flower+Sativa';" alt="Premium Sativa Flower" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">Sativa Flower (1g)</p>
+                        <p class="text-accent text-lg font-bold mt-1">R150</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="drink1">
+                        <img src="images/drink1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=THC+Drink';" alt="THC Infused Beverage" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">THC Drink (25mg)</p>
+                        <p class="text-accent text-lg font-bold mt-1">R80</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="edible3">
+                        <img src="images/edible3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Chocolate';" alt="THC Infused Chocolate Bar" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">THC Chocolate Bar (200mg)</p>
+                        <p class="text-accent text-lg font-bold mt-1">R200</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="flower2">
+                        <img src="images/flower2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Flower+Indica';" alt="Premium Indica Flower" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">Indica Flower (1g)</p>
+                        <p class="text-accent text-lg font-bold mt-1">R150</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="newproduct16">
+                        <img src="images/happy.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Product+16';" alt="New Product 16 Placeholder" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">Happy Chappy</p>
+                        <p class="text-accent text-lg font-bold mt-1">R150</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="newproduct17">
+                        <img src="images/combo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Product+17';" alt="New Product 17 Placeholder" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">Combo deal</p>
+                        <p class="text-accent text-lg font-bold mt-1">R500</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="newproduct18">
+                        <img src="images/joint.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Product+18';" alt="New Product 18 Placeholder" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">Joint</p>
+                        <p class="text-accent text-lg font-bold mt-1">R50</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="newproduct19">
+                        <img src="images/oil.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Product+19';" alt="New Product 19 Placeholder" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">Oil</p>
+                        <p class="text-accent text-lg font-bold mt-1">R350</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="newproduct20">
+                        <img src="images/vape.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Product+20';" alt="New Product 20 Placeholder" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">Vape</p>
+                        <p class="text-accent text-lg font-bold mt-1">R450</p>
+                    </div>
+
+                    <div class="product-card bg-secondary p-4 rounded-xl shadow-lg hover:shadow-2xl" data-product-id="newproduct21">
+                        <img src="images/candy.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1E4D2B/E5F3E7?text=Product+21';" alt="New Product 21 Placeholder" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-text-dark">Candy</p>
+                        <p class="text-accent text-lg font-bold mt-1">R100</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <p class="text-xl font-medium text-text-dark/90">Ready to elevate your experience?</p>
+                    <a href="#order" class="inline-block mt-4 px-8 py-3 text-lg font-semibold bg-primary text-white rounded-full shadow-lg hover:bg-accent transition duration-300 transform hover:scale-105">
+                        Place Your Order Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-secondary">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+                <h2 class="text-4xl font-bold text-center mb-12 border-b-2 border-accent/30 pb-2 max-w-max mx-auto">Our Story</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <img src="images/story.jpg" alt="OG EDIBLES1738 team and products" class="rounded-xl shadow-2xl w-full h-auto">
+                    <div>
+                        <h3 class="text-3xl font-semibold text-primary mb-4">Quality, Purity, and Trust.</h3>
+                        <p class="text-lg text-text-dark/90 mb-4">
+                            OG EDIBLES1738 was founded on a simple principle: to provide the highest quality cannabis products with a focus on exceptional taste and reliable effects. We are a passionate team dedicated to crafting premium edibles, sourcing the finest flower, and ensuring a safe, discreet, and elevated experience for our customers.
+                        </p>
+                        <p class="text-lg text-text-dark/90">
+                            Every item is made with care and meticulously tested for potency and purity, ensuring you receive a consistently premium experience.
+                        </p>
+                        <p class="text-md italic text-text-dark/80">
+                            We believe in transparency, quality ingredients, and delivering an elevated experience with every single order.
+                        </p>
+                        <a href="#order" class="inline-block mt-6 px-6 py-2 border border-primary rounded-full text-primary font-semibold hover:bg-primary hover:text-white transition duration-300">
+                            Shop Premium Products
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12 border-b-2 border-accent/30 pb-2 max-w-max mx-auto">Client Reviews</h2>
+
+                <div class="max-w-xl mx-auto mb-16 p-8 bg-secondary rounded-xl shadow-lg border border-primary/10">
+                    <h3 class="text-2xl font-semibold text-primary mb-6 text-center">Share Your Experience</h3>
+                    <form id="review-form" class="space-y-4">
+                        <div>
+                            <label for="review-name" class="block text-sm font-medium text-text-dark">Your Name</label>
+                            <input type="text" id="review-name" name="review-name" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-accent focus:ring-accent p-2">
+                        </div>
+                        <div>
+                            <label for="review-rating" class="block text-sm font-medium text-text-dark">Rating (1-5)</label>
+                            <input type="number" id="review-rating" name="review-rating" min="1" max="5" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-accent focus:ring-accent p-2">
+                        </div>
+                        <div>
+                            <label for="review-comment" class="block text-sm font-medium text-text-dark">Your Review</label>
+                            <textarea id="review-comment" name="review-comment" rows="4" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-accent focus:ring-accent p-2"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-4 py-2 bg-accent text-white font-semibold rounded-md shadow-md hover:bg-primary transition duration-300">Submit Review</button>
+                        <p id="review-message" class="text-center hidden pt-2"></p>
+                    </form>
+                </div>
+                <div id="reviews-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <p class="text-center md:col-span-2 lg:col-span-3 text-text-dark/70" id="loading-reviews">Loading reviews...</p>
+                </div>
+                </div>
+        </section>
+
+        <section id="order" class="py-20 bg-primary/5">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+                <h2 class="text-4xl font-bold text-center mb-12 border-b-2 border-accent/30 pb-2 max-w-max mx-auto">Place Your Order</h2>
+                
+                <form name="order-form" id="order-form" netlify class="space-y-6 p-8 bg-secondary rounded-xl shadow-2xl">
+                    <input type="hidden" name="form-name" value="order-form" />
+                    <p class="text-lg text-text-dark/90 text-center mb-6">
+                        Use the form below to submit your order inquiry via WhatsApp. We will contact you immediately to confirm the details.
+                    </p>
+                    
+                    <div id="logged-in-user-info" class="p-4 bg-primary/10 rounded-lg text-sm hidden">
+                        <p class="font-semibold text-primary">Logged in as:</p>
+                        <p id="order-user-email" class="text-text-dark"></p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-text-dark">Full Name</label>
+                            <input type="text" id="name" name="name" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-accent focus:ring-accent p-2">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-text-dark">Phone Number (WhatsApp)</label>
+                            <input type="tel" id="phone" name="phone" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-accent focus:ring-accent p-2">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="order-details" class="block text-sm font-medium text-text-dark">Order Details (Products & Quantities)</label>
+                        <textarea id="order-details" name="order-details" rows="5" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-accent focus:ring-accent p-2" placeholder="e.g., 2 x THC Gummies (50mg), 1 x Sativa Flower (1g)"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full px-4 py-3 bg-primary text-white font-semibold rounded-md shadow-lg hover:bg-accent transition duration-300">
+                        Submit Order Inquiry
+                    </button>
+                    
+                    <p class="text-xs text-text-dark/70 text-center pt-2">
+                        A WhatsApp message will be sent to confirm your details. Delivery fees may apply.
+                    </p>
+                </form>
+
+            </div>
+        </section>
+
+        <section id="disclaimers" class="py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+                <h2 class="text-3xl font-bold text-center mb-8 text-primary">Legal & Safety Disclaimer</h2>
+                <div class="bg-primary/5 p-6 rounded-xl shadow-md space-y-4 text-sm text-text-dark/90">
+                    <p><strong>Age Restriction:</strong> By using this site and placing an order, you confirm you are 21 years of age or older. We reserve the right to verify identification upon delivery.</p>
+                    <p><strong>Legal Compliance:</strong> This service operates in compliance with South African laws regarding private cannabis consumption and exchange. Customers are responsible for ensuring their purchase and possession of our products is legal for recreational or medicinal use.</p>
+                    <img src="images/safety.jpeg" alt="Responsible use reminder graphic" class="mx-auto rounded-lg shadow-md mt-4 w-full">
+                    <p><strong>Responsibility:</strong> Please consume responsibly and keep all products out of reach of children and pets. Do not operate heavy machinery or drive after consumption.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-primary text-secondary py-10">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+                    
+                    <div>
+                        <h4 class="text-lg font-bold mb-3 text-accent">OG EDIBLES1738</h4>
+                        <p class="text-sm text-secondary/70">Premium Quality, Elevated Experience.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-secondary">Quick Links</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#products" class="text-secondary/70 hover:text-accent transition duration-150">Menu</a></li>
+                            <li><a href="#reviews" class="text-secondary/70 hover:text-accent transition duration-150">Reviews</a></li>
+                            <li><a href="#about" class="text-secondary/70 hover:text-accent transition duration-150">Our Story</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-secondary">Support</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#disclaimers" class="text-secondary/70 hover:text-accent transition duration-150">Legal Disclaimer</a></li>
+                            <li><a href="#order" class="text-secondary/70 hover:text-accent transition duration-150">How to Order</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-secondary">Connect</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://wa.me/0637572748" target="_blank" class="text-secondary/70 hover:text-accent transition duration-150">WhatsApp</a></li>
+                            <li><a href="https://www.instagram.com/og_edibles1738" target="_blank" class="text-secondary/70 hover:text-accent transition duration-150">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-10 pt-6 border-t border-secondary/20 text-center">
+                    <p class="text-sm text-secondary/50">&copy; <span id="current-year"></span> OG EDIBLES1738. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <div id="signup-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
+            <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md">
+                <h3 class="text-2xl font-bold text-primary mb-6">Create Account</h3>
+                <form id="signup-form" class="space-y-4">
+                    <input type="email" id="signup-email" placeholder="Email" required class="w-full p-3 border border-gray-300 rounded-md">
+                    <input type="password" id="signup-password" placeholder="Password (min 6 chars)" required class="w-full p-3 border border-gray-300 rounded-md">
+                    <p id="signup-error" class="text-red-500 text-sm hidden">Error message</p>
+                    <button type="submit" class="w-full p-3 bg-accent text-white font-semibold rounded-md hover:bg-primary transition">Sign Up</button>
+                    <p class="text-center text-sm text-text-dark/70">Already have an account? <a href="#" id="to-login-link" class="text-accent hover:text-primary font-medium">Log In</a></p>
+                </form>
+            </div>
+        </div>
+
+        <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
+            <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md">
+                <h3 class="text-2xl font-bold text-primary mb-6">Log In</h3>
+                <form id="login-form" class="space-y-4">
+                    <input type="email" id="login-email" placeholder="Email" required class="w-full p-3 border border-gray-300 rounded-md">
+                    <input type="password" id="login-password" placeholder="Password" required class="w-full p-3 border border-gray-300 rounded-md">
+                    <p id="login-error" class="text-red-500 text-sm hidden">Error message</p>
+                    <button type="submit" class="w-full p-3 bg-primary text-white font-semibold rounded-md hover:bg-accent transition">Log In</button>
+                    <p class="text-center text-sm text-text-dark/70">Don't have an account? <a href="#" id="to-signup-link" class="text-accent hover:text-primary font-medium">Sign Up</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    // General UI scripts
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    const ageConfirmBtn = document.getElementById('age-confirm-btn');
+    const ageGateOverlay = document.getElementById('age-gate-overlay');
+    const mainContent = document.getElementById('main-content');
+    const orderSection = document.getElementById('order');
+    const body = document.body;
+
+    // Age Gate Logic
+    if (!localStorage.getItem('ageConfirmed')) {
+        body.style.overflow = 'hidden';
+    } else {
+        ageGateOverlay.classList.add('hidden-gate');
+        ageGateOverlay.style.display = 'none';
+        mainContent.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    ageConfirmBtn.addEventListener('click', () => {
+        localStorage.setItem('ageConfirmed', 'true');
+        ageGateOverlay.style.opacity = '0';
+        mainContent.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+            ageGateOverlay.style.display = 'none';
+            body.style.overflow = 'auto';
+        }, 500);
+    });
+
+    // Mobile Menu Logic
+    const openMenuBtn = document.getElementById('open-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuBackdrop = document.getElementById('menu-backdrop');
+
+    function openMenu() {
+        mobileMenu.classList.add('open');
+        menuBackdrop.classList.add('open');
+        body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.remove('open');
+        menuBackdrop.classList.remove('open');
+        body.style.overflow = 'auto';
+    }
+
+    openMenuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    menuBackdrop.addEventListener('click', closeMenu);
+
+    // Tooltip Logic (Product Descriptions)
+    const productDescriptions = {
+        'edible1': 'Sweet and potent gummy bears infused with 50mg of high-quality THC.',
+        'edible2': 'Rich, decadent chocolate brownie, perfect for a strong, long-lasting high.',
+        'flower1': 'Uplifting, energetic Sativa strain. Great for daytime use and creativity.',
+        'drink1': 'A refreshing, lightly carbonated THC-infused beverage for a social buzz.',
+        'edible3': 'Break-apart chocolate bar with 200mg THC total, easy for dosing.',
+        'flower2': 'Relaxing, body-heavy Indica strain. Ideal for evening use and relaxation.',
+        'newproduct16': 'A popular, fun new product! Limited stock.',
+        'newproduct17': 'Our best-selling bundle for great value!',
+        'newproduct18': 'Ready-rolled pure cannabis joint.',
+        'newproduct19': 'High-concentration cannabis oil, for experienced users.',
+        'newproduct20': 'Disposable THC vape pen for discretion.',
+        'newproduct21': 'Sour cannabis-infused candy for a quick effect.',
+    };
+
+    const productCards = document.querySelectorAll('.product-card');
+    const tooltip = document.getElementById('product-tooltip');
+    const tooltipContent = document.getElementById('tooltip-content');
+
+    // Tooltip positioning helper
+    function getTooltipPosition(cardRect) {
+        let top = cardRect.top + window.scrollY - tooltip.offsetHeight - 10;
+        let left = cardRect.left + window.scrollX + (cardRect.width / 2) - (tooltip.offsetWidth / 2);
+
+        // Keep it on screen horizontally
+        if (left < 10) {
+            left = 10;
+        } else if (left + tooltip.offsetWidth > window.innerWidth - 10) {
+            left = window.innerWidth - tooltip.offsetWidth - 10;
+        }
+
+        // Adjust arrow position (not critical but nice)
+        const arrow = document.getElementById('tooltip-arrow');
+        const arrowLeft = cardRect.left + cardRect.width / 2 - left;
+        arrow.style.left = `${arrowLeft}px`;
+
+
+        return { top: `${top}px`, left: `${left}px` };
+    }
+
+    let hideTimeout;
+
+    productCards.forEach(card => {
+        card.addEventListener('mouseenter', (e) => {
+            clearTimeout(hideTimeout);
+            const id = card.getAttribute('data-product-id');
+            const desc = productDescriptions[id];
+
+            if (desc) {
+                tooltipContent.textContent = desc;
+                const cardRect = card.getBoundingClientRect();
+                const pos = getTooltipPosition(cardRect);
+
+                tooltip.style.top = pos.top;
+                tooltip.style.left = pos.left;
+                tooltip.classList.add('visible');
+                // Use setTimeout to ensure opacity/transform is applied after position
+                setTimeout(() => {
+                     tooltip.style.opacity = '1';
+                     tooltip.style.transform = 'translateY(0)';
+                }, 10);
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                tooltip.style.opacity = '0';
+                tooltip.style.transform = 'translateY(10px)';
+                // Remove visible class after transition
+                setTimeout(() => {
+                    tooltip.classList.remove('visible');
+                    tooltip.style.left = '-9999px';
+                }, 200);
+            }, 50); // Small delay before hiding
+        });
+    });
+
+</script>
+
+
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+<script>
+    // 1. Firebase Configuration (REPLACE with your actual config)
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY", 
+        authDomain: "YOUR_AUTH_DOMAIN",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_STORAGE_BUCKET",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID"
+    };
+
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+    
+    // Initialize services
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // UI elements
+    const signupModal = document.getElementById('signup-modal');
+    const loginModal = document.getElementById('login-modal');
+    const signupForm = document.getElementById('signup-form');
+    const loginForm = document.getElementById('login-form');
+    const signupError = document.getElementById('signup-error');
+    const loginError = document.getElementById('login-error');
+    const logoutBtn = document.getElementById('logout-btn');
+    const accountPanel = document.getElementById('account-panel');
+    const userIdDisplay = document.getElementById('user-id-display');
+    const orderForm = document.getElementById('order-form');
+    const orderUserEmailDisplay = document.getElementById('order-user-email');
+    const loggedInUserInfo = document.getElementById('logged-in-user-info');
+    const orderLockOverlay = document.getElementById('order-lock-overlay');
+    const navOrderBtn = document.getElementById('nav-order-btn');
+    const authFab = document.getElementById('auth-fab'); // Reference to the new FAB
+
+    // Modal toggles
+    function toggleAccountPanel() {
+        accountPanel.classList.toggle('hidden');
+    }
+    document.getElementById('login-nav-btn').addEventListener('click', (e) => { e.preventDefault(); loginModal.classList.remove('hidden'); accountPanel.classList.add('hidden'); });
+    document.getElementById('signup-nav-btn').addEventListener('click', (e) => { e.preventDefault(); signupModal.classList.remove('hidden'); accountPanel.classList.add('hidden'); });
+    document.getElementById('to-login-link').addEventListener('click', (e) => { e.preventDefault(); signupModal.classList.add('hidden'); loginModal.classList.remove('hidden'); });
+    document.getElementById('to-signup-link').addEventListener('click', (e) => { e.preventDefault(); loginModal.classList.add('hidden'); signupModal.classList.remove('hidden'); });
+
+    // Close modals when clicking outside
+    document.addEventListener('click', (e) => {
+        if (e.target.id === 'signup-modal') signupModal.classList.add('hidden');
+        if (e.target.id === 'login-modal') loginModal.classList.add('hidden');
+    });
+
+    // --- FIX: Listener for the Floating Action Button (#auth-fab) ---
+    if (authFab) {
+        authFab.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Open the signup modal by default
+            signupModal.classList.remove('hidden'); 
+        });
+    }
+    // --- END FIX ---
+
+
+    // AUTH LISTENERS
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            // User is signed in
+            signupModal.classList.add('hidden');
+            loginModal.classList.add('hidden');
+            
+            userIdDisplay.textContent = 'Account';
+            document.getElementById('user-email-display').textContent = user.email;
+            document.getElementById('login-nav-btn').classList.add('hidden');
+            document.getElementById('signup-nav-btn').classList.add('hidden');
+            logoutBtn.classList.remove('hidden');
+            
+            // Order Section updates
+            if (orderSection) {
+                orderSection.style.filter = 'none';
+                orderSection.style.pointerEvents = 'auto';
+                if (orderLockOverlay) orderLockOverlay.classList.add('hidden');
+                
+                orderUserEmailDisplay.textContent = user.email;
+                loggedInUserInfo.classList.remove('hidden');
+
+                // Optional: Prefill form data if available from a users collection
+                // db.collection('users').doc(user.uid).get().then(doc => {
+                //     if (doc.exists) {
+                //         const data = doc.data();
+                //         if (document.getElementById('name')) document.getElementById('name').value = data.name || '';
+                //         if (document.getElementById('phone')) document.getElementById('phone').value = data.phone || '';
+                //     }
+                // });
+            }
+
+        } else {
+            // User is signed out
+            userIdDisplay.textContent = 'Log In / Sign Up';
+            document.getElementById('user-email-display').textContent = 'Guest';
+            document.getElementById('login-nav-btn').classList.remove('hidden');
+            document.getElementById('signup-nav-btn').classList.remove('hidden');
+            logoutBtn.classList.add('hidden');
+            loggedInUserInfo.classList.add('hidden');
+
+            // Lock the order section if it exists
+            lockOrderSection();
+        }
+    });
+
+    // SIGNUP
+    if (signupForm) {
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            signupError.classList.add('hidden');
+
+            try {
+                await auth.createUserWithEmailAndPassword(email, password);
+                // User is signed in via onAuthStateChanged listener
+            } catch (err) {
+                signupError.textContent = err.message;
+                signupError.classList.remove('hidden');
+                console.error(err);
+            }
+        });
+    }
+
+    // LOGIN
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            loginError.classList.add('hidden');
+
+            try {
+                await auth.signInWithEmailAndPassword(email, password);
+                // User is signed in via onAuthStateChanged listener
+            } catch (err) {
+                loginError.textContent = err.message;
+                loginError.classList.remove('hidden');
+                console.error(err);
+            }
+        });
+    }
+
+    // LOGOUT
+    logoutBtn.addEventListener('click', async () => {
+        await auth.signOut();
+        accountPanel.classList.add('hidden');
+        alert('Logged out.');
+    });
+
+    // Require login to access the order section
+    function lockOrderSection() {
+        if (orderSection) {
+            orderSection.style.filter = 'blur(2px)';
+            orderSection.style.pointerEvents = 'none';
+
+            // Add overlay prompt
+            if (!document.getElementById('order-lock-overlay')) {
+                const ov = document.createElement('div');
+                ov.id = 'order-lock-overlay';
+                ov.className = 'absolute inset-0 z-40 flex items-center justify-center';
+                ov.style.minHeight = '260px'; 
+                ov.innerHTML = `
+                    <div class="bg-white/95 p-6 rounded-xl shadow-xl text-center max-w-sm">
+                        <p class="mb-4 font-medium">You must be logged in to place an order.</p>
+                        <button class="px-4 py-2 bg-accent text-white rounded-full hover:bg-primary transition" onclick="loginModal.classList.remove('hidden');">Log In / Sign Up</button>
+                    </div>
+                `;
+                orderSection.style.position = 'relative'; // Ensure overlay positions correctly
+                orderSection.appendChild(ov);
+            } else {
+                 document.getElementById('order-lock-overlay').classList.remove('hidden');
+            }
+        }
+    }
+
+
+    // ORDER SUBMISSION LOGIC (using the logged in user info)
+    if (orderForm) {
+      orderForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const currentUser = auth.currentUser;
+        if (!currentUser) {
+            alert('Please log in before submitting an order inquiry.');
+            return;
+        }
+
+        const name = document.getElementById('name') ? document.getElementById('name').value.trim() : '';
+        const phone = document.getElementById('phone') ? document.getElementById('phone').value.trim() : '';
+        const orderDetails = document.getElementById('order-details') ? document.getElementById('order-details').value.trim() : '';
+        const userEmail = currentUser.email;
+        const uid = currentUser.uid;
+
+        // Basic validation
+        if (!name || !phone || !orderDetails) {
+          alert('Please complete all required fields.');
+          return;
+        }
+
+        try {
+          // Save order under users/{uid}/orders
+          const orderRef = await db.collection('users').doc(uid).collection('orders').add({
+            name,
+            phone,
+            orderDetails,
+            userEmail,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            status: 'pending'
+          });
+
+          console.log('Order saved with id:', orderRef.id);
+          
+          // Construct the WhatsApp message
+          const waMessage = encodeURIComponent(`Hi OG EDIBLES1738, I'd like to confirm an order.
+Name: ${name}
+Phone: ${phone}
+Email: ${userEmail}
+Order: ${orderDetails}
+`);
+          
+          // Open WhatsApp link (using the same number as the floating button)
+          window.open(`https://wa.me/0637572748?text=${waMessage}`, '_blank');
+
+
+          // Redirect to your existing thank-you page or show a success message:
+          // window.location.href = 'thank-you.html';
+          alert('Order inquiry sent! Please check WhatsApp to confirm your order details with us.');
+          orderForm.reset();
+          
+        } catch (err) {
+          console.error('Error saving order:', err);
+          alert('Failed to save order. Please try again or contact support.');
+        }
+      });
+    }
+
+    // Initial small UI text for not logged in
+    if (userIdDisplay && !userIdDisplay.textContent) userIdDisplay.textContent = 'Not logged in';
+
+
+    // ==========================================================
+    // NEW: REVIEW SUBMISSION AND DISPLAY LOGIC
+    // ==========================================================
+
+    // Helper function to create star icons (for display)
+    function createRatingStars(rating) {
+        let stars = '';
+        // Tailwind CSS classes for full and empty stars (using heroicons for example)
+        const starHTML = (isFull) => `
+            <svg class="w-5 h-5 ${isFull ? 'text-yellow-400' : 'text-gray-300'} fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.487 7.02l6.56-.955L10 0l2.953 6.065 6.56.955-4.758 4.625 1.123 6.545z"/>
+            </svg>
+        `;
+        
+        for (let i = 1; i <= 5; i++) {
+            stars += starHTML(i <= rating);
+        }
+        return stars;
+    }
+
+    // Function to load and display reviews
+    async function loadReviews() {
+        const reviewsContainer = document.getElementById('reviews-container');
+        const loadingElement = document.getElementById('loading-reviews');
+        
+        if (reviewsContainer) {
+            reviewsContainer.innerHTML = ''; // Clear existing content
+        }
+
+        try {
+            if (typeof db === 'undefined') {
+                console.error("Firestore database is not initialized.");
+                if (reviewsContainer) reviewsContainer.innerHTML = '<p class="text-center md:col-span-2 lg:col-span-3 text-red-500">Error: Review service not available.</p>';
+                return;
+            }
+            
+            // Fetch reviews, ordered by creation date (newest first)
+            const snapshot = await db.collection('reviews').orderBy('createdAt', 'desc').get();
+            
+            if (snapshot.empty) {
+                if (reviewsContainer) reviewsContainer.innerHTML = '<p class="text-center md:col-span-2 lg:col-span-3 text-text-dark/70">Be the first to leave a review!</p>';
+                return;
+            }
+
+            snapshot.forEach(doc => {
+                const review = doc.data();
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 border-t-4 border-accent/70';
+                
+                // Format timestamp
+                let dateString = '';
+                if (review.createdAt && review.createdAt.toDate) {
+                    dateString = review.createdAt.toDate().toLocaleDateString('en-US', {
+                        year: 'numeric', month: 'short', day: 'numeric'
+                    });
+                } else {
+                     dateString = 'Just submitted'; // For newly submitted reviews before a reload
+                }
+                
+                reviewElement.innerHTML = `
+                  <div class="flex items-center mb-3">
+                    <div class="flex space-x-0.5">${createRatingStars(review.rating)}</div>
+                    <p class="text-xs text-gray-500 ml-3">${dateString}</p>
+                  </div>
+                  <p class="font-bold text-lg text-primary mb-2">${review.name}</p>
+                  <p class="text-text-dark/90 italic">${review.comment}</p>
+                `;
+                if (reviewsContainer) reviewsContainer.appendChild(reviewElement);
+            });
+
+        } catch (error) {
+            console.error("Error loading reviews:", error);
+            if (reviewsContainer) reviewsContainer.innerHTML = '<p class="text-center md:col-span-2 lg:col-span-3 text-red-500">Failed to load reviews. Please try again later.</p>';
+        }
+        if (loadingElement) loadingElement.remove();
+    }
+
+    // --- Review Submission Logic ---
+    const reviewForm = document.getElementById('review-form');
+    const reviewMessage = document.getElementById('review-message');
+
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('review-name').value.trim();
+            const ratingInput = document.getElementById('review-rating').value.trim();
+            const rating = parseInt(ratingInput);
+            const comment = document.getElementById('review-comment').value.trim();
+
+            // Basic validation
+            if (!name || !ratingInput || !comment || rating < 1 || rating > 5 || isNaN(rating)) {
+                reviewMessage.textContent = 'Please provide your name, a rating (1-5), and a comment.';
+                reviewMessage.className = 'text-center text-red-500 pt-2';
+                reviewMessage.classList.remove('hidden');
+                return;
+            }
+
+            // Disable button and show loading
+            const submitBtn = reviewForm.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            reviewMessage.classList.add('hidden');
+
+            try {
+                // Save to Firestore 'reviews' collection
+                await db.collection('reviews').add({
+                    name,
+                    rating,
+                    comment,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                // Success message
+                reviewMessage.textContent = 'Thank you for your review! It has been submitted and displayed.';
+                reviewMessage.className = 'text-center text-primary font-medium pt-2';
+                reviewMessage.classList.remove('hidden');
+                
+                // Reset form
+                reviewForm.reset();
+                
+                // Re-load reviews to show the new one immediately
+                loadReviews();
+
+            } catch (err) {
+                console.error('Error submitting review:', err);
+                reviewMessage.textContent = 'Failed to submit review. Please try again.';
+                reviewMessage.className = 'text-center text-red-500 pt-2';
+                reviewMessage.classList.remove('hidden');
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Review';
+            }
+        });
+        
+        // Load reviews when the page is fully loaded
+        loadReviews();
+    }
+
+</script>
+</body>
+</html>
