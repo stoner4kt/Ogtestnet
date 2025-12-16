@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>ConextSol | Web Development & Automation Services in South Africa</title>
+
+  <!-- SEO -->
+  <meta name="description" content="ConextSol provides professional web development, automation, and AI-ready digital solutions for businesses across South Africa. Based locally, serving nationally.">
+  <meta name="keywords" content="web development South Africa, automation services, website designer, AI solutions">
+  <meta name="author" content="Tashreeq Jones">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ConextSol">
+  <meta property="og:description" content="From concept to code – building scalable digital solutions.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Analytics (PLACEHOLDER) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ConextSol",
+    "url": "https://yourdomain.com",
+    "description": "Web development, automation and AI-ready digital solutions for businesses across South Africa.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ZA"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "South Africa"
+    },
+    "sameAs": [
+      "https://www.instagram.com/",
+      "https://www.tiktok.com/"
+    ]
+  }
+  </script>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="container">
+  <a href="#" class="logo">Conext<span>Sol</span></a>
+
+  <nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <ul id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+  </nav>
+
+  <button id="openContactModal" class="contact-button">Contact</button>
+</header>
+
+<main>
+
+<section class="hero">
+  <h1>Web Development & Automation Services in South Africa</h1>
+  <p>Professional websites, automation, and AI-ready solutions for businesses nationwide.</p>
+
+  <button id="openContactModalHero" class="contact-button">Get In Touch</button>
+
+  <div class="social-links">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+  </div>
+</section>
+
+<section id="services" class="container">
+  <h2>Services</h2>
+  <div class="advantage-grid">
+    <div class="advantage-item">Web Development</div>
+    <div class="advantage-item">Automation & AI-Ready Systems</div>
+    <div class="advantage-item">Technical Consulting</div>
+  </div>
+
+  <p class="seo-text">
+    ConextSol proudly provides web development and automation services to startups and businesses across South Africa, delivering scalable digital solutions for both local and national brands.
+  </p>
+</section>
+
+<section id="projects" class="container">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x250" alt="Business website project developed by ConextSol in South Africa">
+      <h3>Business Website</h3>
+      <p>Responsive website with automation.</p>
+      <a href="#" target="_blank">View Live</a>
+    </div>
+
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x250" alt="AI chatbot system developed by ConextSol">
+      <h3>AI System</h3>
+      <p>Lead capture and customer engagement.</p>
+      <a href="#" target="_blank">View Live</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="reviews" class="reviews-section">
+  <h2>Client Reviews</h2>
+  <div class="carousel">
+    <div class="carousel-track">
+      <div class="review-box">⭐⭐⭐⭐⭐ Excellent service and fast delivery</div>
+      <div class="review-box">⭐⭐⭐⭐⭐ Very professional and reliable</div>
+      <div class="review-box">⭐⭐⭐⭐⭐ Highly recommended</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- CONTACT MODAL -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span id="closeContactModal" class="close-btn">&times;</span>
+
+    <form name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+      <input type="hidden" name="form-name" value="contact">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/27700000000" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- AI CHATBOT PLACEHOLDER (OPTION 1 – INACTIVE) -->
+<!--
+<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script>
+  window.botpressWebChat.init({
+    botId: "YOUR_BOT_ID",
+    composerPlaceholder: "Ask us anything..."
+  });
+</script>
+-->
+
+<script src="script.js"></script>
+</body>
+</html>
