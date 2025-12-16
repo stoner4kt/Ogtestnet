@@ -17,3 +17,24 @@ document.addEventListener('DOMContentLoaded',()=>{
     track.style.transform=`translateX(-${i*100}%)`;
   },4000);
 });
+// Botpress Chatbot Init
+window.addEventListener("load", () => {
+  if (!window.botpress) return;
+
+  window.botpress.on("webchat:ready", () => {
+    window.botpress.open();
+  });
+
+  window.botpress.init({
+    botId: "ba59db63-b661-4333-b508-79d0c1be1d69",
+    clientId: "ec456122-3795-4c41-a3a6-3c9c336dcf4d",
+    selector: "#webchat",
+    configuration: {
+      website: {},
+      email: {},
+      phone: {},
+      termsOfService: {},
+      privacyPolicy: {}
+    }
+  });
+});
