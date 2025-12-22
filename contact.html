@@ -1,15 +1,54 @@
-<section class="container" style="max-width: 600px;">
-    <h1>Contact Us</h1>
-    <form name="contact" method="POST" data-netlify="true" style="display: flex; flex-direction: column; gap: 15px;">
-        <input type="hidden" name="form-name" value="contact" />
-        <input type="text" name="name" placeholder="Your Name" required style="padding: 10px;">
-        <select name="division" style="padding: 10px;">
-            <option>Pest Control</option>
-            <option>Estate Maintenance</option>
-            <option>Pet Food</option>
-            <option>Household Items</option>
-        </select>
-        <textarea name="message" rows="5" placeholder="Contact details along with query" style="padding: 10px;"></textarea>
-        <button type="submit" class="btn" style="border: none; cursor: pointer;">Submit Request</button>
-    </form>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Rainfall Business Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Rainfall Services</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pest.html">Pest Control</a></li>
+            <li><a href="estates.html">Estates</a></li>
+            <li><a href="petfood.html">Pet Food</a></li>
+            <li><a href="household.html">Household</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="contact-form-wrapper">
+            <h1 style="text-align: center; color: var(--primary); margin-bottom: 10px;">Get In Touch</h1>
+            <p style="text-align: center; margin-bottom: 30px;">Send us a message and our team will get back to you shortly.</p>
+            
+            <form name="contact" method="POST" data-netlify="true" class="contact-form">
+                <input type="hidden" name="form-name" value="contact" />
+                
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="Enter your name" required>
+
+                <label>Select Department</label>
+                <select name="division">
+                    <option value="pest">Pest Control Services</option>
+                    <option value="estates">Estate Maintenance</option>
+                    <option value="petfood">Pet Food (DogfoodPrograms)</option>
+                    <option value="household">Household Items</option>
+                </select>
+
+                <label>Your Message / Query</label>
+                <textarea name="message" rows="5" placeholder="How can we help you today?" required></textarea>
+
+                <button type="submit" class="btn btn-full">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
+</body>
+</html>
